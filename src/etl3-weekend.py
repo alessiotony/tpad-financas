@@ -1,5 +1,5 @@
 from glob import glob
-from numpy import log1p, select
+from numpy import log1p, select, where, nan
 from pandas import read_csv, DataFrame, to_datetime
 import holidays
 from datetime import datetime, timedelta
@@ -43,7 +43,10 @@ d1 = (
         dia=lambda x: x.data.dt.weekday.map({0:'SEG', 1:'TER', 2:'QUA', 3:'QUI', 4:'SEX', 5:'SAB', 6:'DOM'}),
         trimestre = lambda x: x.data.dt.quarter,
         mes = lambda x: x.data.dt.month,
-        fim_semana = lambda x: select([x.dia=='SEX', x.dia=='SEG'], ['Sexta', 'Segunda'], default='Outro'))
+        fim_semana = lambda x: select([x.dia=='SEX', x.dia=='SEG'], ['Sexta', 'Segunda'], default='Outro'),
+        ret_segunda = lambda x: where(x.fim_semana=="Segunda", x.retorno, nan),
+        ret_sexta = lambda x: where(x.fim_semana=="Sexta", x.retorno, nan)
+        )
 )
 
 print(d1.head(3))
