@@ -5,6 +5,8 @@
 
 ## Requisitos
 
+1. Instalar os pacotes necessários
+`pip install -r requirements.txt`
 1. É necessário baixar o arquivo `IBOVDia` no site da B3 e salvá-lo na pasta `data`.
 
 ## Fontes dos dados

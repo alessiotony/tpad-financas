@@ -1,0 +1,3 @@
+pandas==2.2.2
+yfinance==0.2.37
+holidays==0.58
