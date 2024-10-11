@@ -2,4 +2,3 @@ pandas==2.2.2
 yfinance==0.2.37
 holidays==0.58
 streamlit==1.28.1
-mitosheet==0.1.524

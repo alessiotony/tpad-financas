@@ -4,7 +4,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from mitosheet.streamlit.v1 import spreadsheet
 
 # Leitura dos dados
 d = pd.read_excel('data/tbl_acoes.xlsx', parse_dates=[0])
@@ -74,4 +73,4 @@ r = d.groupby('data').agg(segunda=('ret_segunda', 'sum'),
 st.area_chart(r)
 
 
-spreadsheet(d)
+st.table(d)
